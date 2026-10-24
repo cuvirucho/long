@@ -24,12 +24,12 @@ function useActiveSection(ids) {
   return active
 }
 
-const SECTION_IDS = NAV_LINKS.map((link) => link.id)
+const SECTION_IDS = NAV_LINKS.filter((link) => !link.opensBuilder).map((link) => link.id)
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const active = useActiveSection(SECTION_IDS)
-  const { count, openCart } = useCart()
+  const { count, openCart, openBuilder } = useCart()
 
   useEffect(() => {
     if (!open) return undefined
@@ -49,14 +49,27 @@ export default function Navbar() {
           <ul className="navbar__links">
             {NAV_LINKS.map((link) => (
               <li key={link.id}>
-                <a
-                  href={`#${link.id}`}
-                  className={`navbar__link ${active === link.id ? 'is-active' : ''}`}
-                  aria-current={active === link.id ? 'true' : undefined}
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </a>
+                {link.opensBuilder ? (
+                  <button
+                    type="button"
+                    className="navbar__link navbar__link--btn"
+                    onClick={() => {
+                      setOpen(false)
+                      openBuilder()
+                    }}
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <a
+                    href={`#${link.id}`}
+                    className={`navbar__link ${active === link.id ? 'is-active' : ''}`}
+                    aria-current={active === link.id ? 'true' : undefined}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

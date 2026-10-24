@@ -70,7 +70,14 @@ export default function CartDrawer() {
             <p>Tu pedido está vacío.</p>
             <div className="drawer__empty-actions">
               <Button as="a" href="#menu" variant="ghost" onClick={cart.closeCart}>Ver menú</Button>
-              <Button as="a" href="#crea-tu-wrap" onClick={cart.closeCart}>Crear mi wrap</Button>
+              <Button
+                onClick={() => {
+                  cart.closeCart()
+                  cart.openBuilder()
+                }}
+              >
+                Crear mi wrap
+              </Button>
             </div>
           </div>
         ) : (

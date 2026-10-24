@@ -1,5 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 import { Burst } from "../assets/icons/Doodles.jsx";
+import { useCart } from "../hooks/useCart.js";
 import Button from "./Button.jsx";
 import GooseMascot from "./GooseMascot.jsx";
 import SmartImage from "./SmartImage.jsx";
@@ -21,6 +22,8 @@ function BrandCup() {
 }
 
 export default function Hero() {
+  const { openBuilder } = useCart();
+
   return (
     <section className="hero" id="inicio" aria-labelledby="hero-title">
       <div className="container hero__inner">
@@ -38,9 +41,9 @@ export default function Hero() {
             <Button as="a" href="#menu" icon={ShoppingCart} size="lg">
               Ordena ahora
             </Button>
-            <a className="hero__secondary" href="#crea-tu-wrap">
+            <button type="button" className="link-btn hero__secondary" onClick={openBuilder}>
               o crea el tuyo
-            </a>
+            </button>
           </div>
         </div>
 

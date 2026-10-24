@@ -4,6 +4,7 @@ import { CartContext, cartReducer, createLineId, loadCart, saveCart } from './ca
 export function CartProvider({ children }) {
   const [items, dispatch] = useReducer(cartReducer, undefined, loadCart)
   const [isOpen, setIsOpen] = useState(false)
+  const [isBuilderOpen, setIsBuilderOpen] = useState(false)
   const [notice, setNotice] = useState(null)
   const noticeTimer = useRef(null)
 
@@ -45,7 +46,7 @@ export function CartProvider({ children }) {
         item: {
           lineId: createLineId(),
           type: 'custom',
-          name: `Wrap personalizado (${snapshot.proteina.name})`,
+          name: `Wrap personalizado (${snapshot.proteina.map((option) => option.name).join(' + ')})`,
           unitPriceCents: snapshot.totalCents,
           qty: 1,
           details: snapshot,
@@ -67,6 +68,9 @@ export function CartProvider({ children }) {
       notice,
       openCart: () => setIsOpen(true),
       closeCart: () => setIsOpen(false),
+      isBuilderOpen,
+      openBuilder: () => setIsBuilderOpen(true),
+      closeBuilder: () => setIsBuilderOpen(false),
       addMenuItem,
       addCustomWrap,
       increment: (lineId) => dispatch({ type: 'increment', lineId }),
@@ -75,7 +79,7 @@ export function CartProvider({ children }) {
       clear: () => dispatch({ type: 'clear' }),
       dismissNotice: () => setNotice(null),
     }
-  }, [items, isOpen, notice, addMenuItem, addCustomWrap])
+  }, [items, isOpen, isBuilderOpen, notice, addMenuItem, addCustomWrap])
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }

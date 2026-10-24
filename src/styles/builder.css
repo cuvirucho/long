@@ -1,23 +1,19 @@
 /* ================= CONSTRUCTOR ================= */
-.builder {
-  background: var(--cream);
-}
-
-.builder .container {
+.builder-modal {
   position: relative;
-  z-index: 1;
+  width: min(760px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  padding: clamp(28px, 4vw, 48px) clamp(16px, 3vw, 36px);
+  background: var(--cream);
+  border-radius: var(--radius-section);
+  box-shadow: 0 24px 60px rgba(0, 20, 60, 0.35);
+  overscroll-behavior: contain;
+  animation: rise 0.28s ease;
 }
 
-.leaf--builder-l {
-  left: -30px;
-  bottom: 40px;
-}
-
-.leaf--builder-r {
-  right: -30px;
-  bottom: 40px;
-  transform: scaleX(-1);
-  transform-origin: bottom right;
+.builder-modal:focus {
+  outline: none;
 }
 
 /* Indicador de pasos */
@@ -72,34 +68,32 @@
   color: var(--orange);
 }
 
+.stepper__item.is-done .stepper__circle {
+  background: var(--navy);
+  color: var(--white);
+}
+
 .stepper__item.has-error .stepper__circle {
   border-color: var(--danger);
   color: var(--danger);
 }
 
 .builder__progress {
-  display: none;
   text-align: center;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 /* Paneles */
-.builder__panels {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-section);
+.builder-panel:not(.is-active) {
+  display: none;
 }
 
 .builder-panel {
   position: relative;
   min-width: 0;
   margin: 0;
-  padding: 16px 12px 14px;
+  padding: 20px 18px 16px;
   background: var(--white);
   border: 2px solid var(--border);
   border-radius: var(--radius-card);
@@ -142,10 +136,10 @@
 
 .option {
   display: grid;
-  grid-template-columns: 20px 40px minmax(0, 1fr) auto;
+  grid-template-columns: 22px 44px minmax(0, 1fr) auto;
   align-items: center;
-  gap: 8px;
-  min-height: 52px;
+  gap: 12px;
+  min-height: 58px;
   padding: 6px 6px;
   border-radius: 10px;
   cursor: pointer;
@@ -226,13 +220,13 @@
 }
 
 .option__name {
-  font-size: 0.84rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
 }
 
 .option__price {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 800;
   color: var(--navy);
   white-space: nowrap;
@@ -247,8 +241,8 @@
 .thumb {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
 }
 
@@ -304,7 +298,7 @@
 }
 
 .builder__nav {
-  display: none;
+  display: flex;
   justify-content: space-between;
   gap: 12px;
   margin-top: 14px;
@@ -361,4 +355,12 @@
 
 .summary__add {
   min-width: 260px;
+}
+
+/* El botón de cerrar acompaña el scroll interno del modal */
+.builder-modal__close {
+  position: sticky;
+  top: 0;
+  float: right;
+  margin: -12px -8px 0 0;
 }

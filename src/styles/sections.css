@@ -954,3 +954,10 @@ a.social-btn:hover {
   transform: scaleX(-1);
   transform-origin: bottom right;
 }
+
+.navbar__link--btn {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}

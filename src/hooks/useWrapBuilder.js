@@ -30,6 +30,7 @@ export function useWrapBuilder(initialSelection = INITIAL_SELECTION) {
         : [...current, optionId]
       return { ...prev, [stepKey]: next }
     })
+    clearError(stepKey)
   }, [])
 
   const totalCents = useMemo(() => calculateWrapPrice(selection), [selection])
@@ -45,6 +46,21 @@ export function useWrapBuilder(initialSelection = INITIAL_SELECTION) {
     }
     return createWrapSnapshot(selection)
   }, [selection])
+
+  // Valida los pasos previos a `targetIndex`; si alguno requerido falta, marca su
+  // error, lo activa y devuelve false.
+  const validateBefore = useCallback(
+    (targetIndex) => {
+      const found = validateSelection(selection)
+      const firstInvalid = BUILDER_STEPS.slice(0, targetIndex).findIndex((step) => found[step.key])
+      if (firstInvalid === -1) return true
+      const { key } = BUILDER_STEPS[firstInvalid]
+      setErrors((prev) => ({ ...prev, [key]: found[key] }))
+      setActiveStep(firstInvalid)
+      return false
+    },
+    [selection],
+  )
 
   const reset = useCallback(() => {
     setSelection(initialSelection)
@@ -62,6 +78,7 @@ export function useWrapBuilder(initialSelection = INITIAL_SELECTION) {
     toggleMulti,
     totalCents,
     validateAndSnapshot,
+    validateBefore,
     reset,
   }
 }

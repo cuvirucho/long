@@ -14,8 +14,10 @@ export const IMAGES = {
   mascota:
     "https://res.cloudinary.com/db8e98ggo/image/upload/v1792866187/Usa_la_imagen_adjunta_como_referencia_maestra_del_personaje_y_desarrolla_una_identidad_gr%C3%A1fica_comercial_completa_para_una_marca_de_comida._El_objetivo_es_crear_una_marca_gastron%C3%B3mica_atractiva_m_5_z3y2vl.png", // Mascota de la marca
   bannerWrap: null, // Wrap grande para el banner "Crea tu wrap"
-  GRANGERA: null,
   wrapSteak: null,
+  GRANGERA: null,
+  mascota2:
+    "https://res.cloudinary.com/db8e98ggo/image/upload/v1792865042/Usa_la_imagen_adjunta_como_referencia_maestra_del_personaje_y_desarrolla_una_identidad_gr%C3%A1fica_comercial_completa_para_una_marca_de_comida._El_objetivo_es_crear_una_marca_gastron%C3%B3mica_atractiva_m_2_khlm7h.png",
   wrapVeggie: null,
   wrapShrimp: null,
   storefront: null, // Fachada del restaurante

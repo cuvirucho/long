@@ -40,9 +40,9 @@ export function createWrapSnapshot(selection) {
   return {
     basePriceCents: BASE_PRICE_CENTS,
     tortilla: pick('tortilla')[0] ?? null,
-    proteina: pick('proteina')[0] ?? null,
+    proteina: pick('proteina'),
     ingredientes: pick('ingredientes'),
-    salsa: pick('salsa')[0] ?? null,
+    salsa: pick('salsa'),
     extras: pick('extras'),
     totalCents: calculateWrapPrice(selection),
   }

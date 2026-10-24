@@ -15,7 +15,7 @@ function OptionThumb({ stepKey, option }) {
   )
 }
 
-export default function IngredientStep({ step, index, isActive, value, error, onActivate, onSelectSingle, onToggleMulti }) {
+export default function IngredientStep({ step, index, isActive, value, error, onSelectSingle, onToggleMulti }) {
   const isSingle = step.type === 'single'
   const inputName = `builder-${step.key}`
   const isChecked = (id) => (isSingle ? value === id : value.includes(id))
@@ -23,8 +23,6 @@ export default function IngredientStep({ step, index, isActive, value, error, on
   return (
     <fieldset
       className={`builder-panel ${isActive ? 'is-active' : ''} ${error ? 'has-error' : ''}`}
-      onFocus={onActivate}
-      onClick={onActivate}
       aria-describedby={error ? `${inputName}-error` : undefined}
     >
       <legend className="builder-panel__title">

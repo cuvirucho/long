@@ -8,12 +8,17 @@ import { ProductImage } from './WrapCard.jsx'
 
 export default function ProductModal({ product, onClose }) {
   const [qty, setQty] = useState(1)
-  const { addMenuItem } = useCart()
+  const { addMenuItem, openBuilder } = useCart()
   const panelRef = useDialog(true, onClose)
 
   const handleAdd = () => {
     addMenuItem(product, qty)
     onClose()
+  }
+
+  const handleCustomize = () => {
+    onClose()
+    openBuilder()
   }
 
   return (
@@ -53,7 +58,7 @@ export default function ProductModal({ product, onClose }) {
               Agregar · {formatMoney(product.priceCents * qty)}
             </Button>
           </div>
-          <p className="fine-print">¿Lo quieres a tu manera? <a href="#crea-tu-wrap" onClick={onClose}>Arma tu propio wrap</a>.</p>
+          <p className="fine-print">¿Lo quieres a tu manera? <button type="button" className="link-btn link-btn--inline" onClick={handleCustomize}>Arma tu propio wrap</button>.</p>
         </div>
       </div>
     </div>

@@ -13,17 +13,17 @@ import { CartProvider } from './context/CartContext.jsx'
 export default function App() {
   return (
     <CartProvider>
-      <a className="skip-link" href="#crea-tu-wrap">Saltar al constructor de wraps</a>
+      <a className="skip-link" href="#menu">Saltar al menú</a>
       <Navbar />
       <main>
         <Hero />
         <FeatureStrip />
         <MenuSection />
         <CreateWrapBanner />
-        <WrapBuilder />
         <LocationSection />
       </main>
       <Footer />
+      <WrapBuilder />
       <CartDrawer />
       <Toast />
     </CartProvider>

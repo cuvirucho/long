@@ -3,12 +3,16 @@ import { formatMoney } from './money.js'
 export function describeCartItem(item) {
   if (item.type !== 'custom') return item.description ? [item.description] : []
   const { tortilla, proteina, ingredientes, salsa, extras } = item.details
-  const names = (list) => (list.length ? list.map((option) => option.name).join(', ') : 'Ninguno')
+  // [].concat acepta también wraps guardados antes, con proteína y salsa como objeto único.
+  const names = (list) => {
+    const options = [].concat(list ?? [])
+    return options.length ? options.map((option) => option.name).join(', ') : 'Ninguno'
+  }
   return [
     `Tortilla: ${tortilla?.name ?? '-'}`,
-    `Proteína: ${proteina?.name ?? '-'}`,
+    `Proteínas: ${names(proteina)}`,
     `Ingredientes: ${names(ingredientes)}`,
-    `Salsa: ${salsa?.name ?? '-'}`,
+    `Salsas: ${names(salsa)}`,
     `Extras: ${names(extras)}`,
   ]
 }
