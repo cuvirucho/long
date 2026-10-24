@@ -5,6 +5,7 @@ import GooseMascot from "./GooseMascot.jsx";
 import SmartImage from "./SmartImage.jsx";
 import TropicalLeaf from "./TropicalLeaf.jsx";
 import WrapIllustration from "./WrapIllustration.jsx";
+import { IMAGES } from "../assets/images/index.js";
 
 function BrandCup() {
   return (
@@ -22,15 +23,12 @@ function BrandCup() {
 export default function Hero() {
   return (
     <section className="hero" id="inicio" aria-labelledby="hero-title">
-      <TropicalLeaf className="leaf leaf--hero-bl" color="var(--orange)" />
-      <TropicalLeaf className="leaf leaf--hero-br" />
-
       <div className="container hero__inner">
         <div className="hero__copy">
           <p className="eyebrow">Wraps personalizados</p>
           <h1 className="hero__title" id="hero-title">
             <span className="hero__title-navy">Tu sabor,</span>
-            <span className="hero__title-orange">tu wrap</span>
+            <span className="hero__title-orange">tu estilo</span>
           </h1>
           <p className="hero__text">
             Ingredientes frescos, combinaciones infinitas y todo el sabor en un
@@ -48,15 +46,13 @@ export default function Hero() {
 
         <div className="hero__visual">
           <div className="hero__sun" aria-hidden="true" />
-          <GooseMascot className="hero__goose" title="Mascota de Long Wraps" />
-          <SmartImage
-            imageKey="heroWrap"
-            alt="Wrap abierto relleno de pollo a la parrilla y vegetales frescos"
-            className="hero__photo"
-            loading="eager"
-            fallback={<WrapIllustration variant="pollo" withBoard />}
+          <img
+            className="hero__goose"
+            title="Mascota de Long Wraps"
+            src={IMAGES.mascota}
+            alt="Mascota de Long Wraps"
           />
-          <BrandCup />
+
           <p className="hero__note" aria-hidden="true">
             <Burst className="hero__note-burst" />
             Fresco
@@ -67,6 +63,8 @@ export default function Hero() {
           </p>
         </div>
       </div>
+      <TropicalLeaf className="leaf leaf--hero-br" />
+      <TropicalLeaf className="leaf leaf--hero-bl" color="var(--orange)" />
     </section>
   );
 }

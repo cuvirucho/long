@@ -154,7 +154,7 @@
 }
 
 .logo__img {
-  height: 120px;
+  height: 60px;
   width: auto;
 }
 
@@ -239,9 +239,9 @@
 
 .hero__sun {
   position: absolute;
-  left: 6%;
+  left: 15%;
   top: 12%;
-  width: 46%;
+  width: 70%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--orange);
@@ -249,79 +249,17 @@
 
 .hero__goose {
   position: absolute;
-  left: 5%;
-  top: 2%;
-  width: 50%;
+  left: 10%;
+  top: -5%;
+  width: 70%;
   z-index: 2;
   filter: drop-shadow(0 6px 10px rgba(0, 31, 91, 0.15));
 }
 
-.hero__photo {
-  position: absolute;
-  right: 5%;
-  bottom: 5%;
-  width: 55%;
-  aspect-ratio: 48 / 34;
-  z-index: 3;
-  object-fit: cover;
-  border-radius: var(--radius-section);
-}
-
-.hero__photo.smart-image--fallback {
-  filter: drop-shadow(0 18px 24px rgba(91, 58, 26, 0.25));
-}
-
-.hero__cup {
-  position: absolute;
-  right: 2%;
-  top: 0;
-  width: 22%;
-  z-index: 1;
-}
-
-.hero__cup-lid {
-  height: 14px;
-  margin-inline: -6%;
-  border-radius: 8px 8px 3px 3px;
-  background: #f1e6d6;
-  border: 2px solid var(--border);
-}
-
-.hero__cup-body {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 3 / 4;
-  clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
-  background:
-    radial-gradient(
-      circle at 30% 20%,
-      rgba(255, 255, 255, 0.8) 0 6%,
-      transparent 7%
-    ),
-    #fbf4ea;
-  border-bottom: 3px solid var(--border);
-}
-
-.hero__cup-logo {
-  display: grid;
-  place-items: center;
-  width: 62%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--orange);
-  border: 3px solid var(--navy);
-  overflow: hidden;
-}
-
-.hero__cup-logo svg {
-  width: 92%;
-  margin-top: 8%;
-}
-
 .hero__note {
   position: absolute;
-  right: 24%;
-  top: 4%;
+  right: 4%;
+  top: 3%;
   z-index: 4;
   font-family: var(--font-hand);
   font-size: clamp(1.3rem, 2.3vw, 2rem);
