@@ -1,0 +1,30 @@
+:root {
+  --orange: #fd8d03;
+  --orange-dark: #e04f00;
+  --navy: #011d4f;
+  --cream: #fff5e7;
+  --cream-deep: #fbebd3;
+  --turquoise: #17a2b8;
+  --turquoise-dark: #0e7f91;
+  --white: #ffffff;
+  --text: #011d4f;
+  --muted: #5a6b85;
+  --border: #e7dccb;
+  --danger: #c62828;
+  --whatsapp: #1fa855;
+
+  --font-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-hand: "Caveat Brush", "Comic Sans MS", cursive;
+
+  --radius-card: 12px;
+  --radius-section: 24px;
+  --radius-pill: 999px;
+  --container: 1200px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --nav-height: 76px;
+
+  --shadow-card: 0 4px 16px rgba(0, 31, 91, 0.08);
+  --shadow-lift: 0 12px 28px rgba(0, 31, 91, 0.14);
+  --transition: 0.25s ease;
+}

@@ -1,0 +1,394 @@
+/* ================= ≤ 1280px ================= */
+@media (max-width: 1280px) {
+  .builder__panels {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  /* 3 + 2 paneles */
+  .builder-panel {
+    grid-column: span 2;
+  }
+
+  .builder-panel:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+}
+
+/* ================= ≤ 1024px ================= */
+@media (max-width: 1024px) {
+  :root {
+    --nav-height: 68px;
+  }
+
+  .navbar__links {
+    gap: 18px;
+  }
+
+  .navbar__link {
+    font-size: 0.8rem;
+  }
+
+  .menu__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .banner__inner {
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr) minmax(0, 0.9fr);
+  }
+
+  .location__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "motto"
+      "links"
+      "social";
+    justify-items: center;
+    text-align: center;
+    row-gap: 16px;
+  }
+}
+
+/* ================= ≤ 860px: navegación móvil ================= */
+@media (max-width: 860px) {
+  .navbar__toggle {
+    display: grid;
+  }
+
+  .navbar__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 12px 24px rgba(0, 31, 91, 0.1);
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+    transition:
+      clip-path 0.3s ease,
+      visibility 0s linear 0.3s;
+  }
+
+  .navbar__nav.is-open {
+    clip-path: inset(0 0 0 0);
+    visibility: visible;
+    transition: clip-path 0.3s ease;
+  }
+
+  .navbar__links {
+    flex-direction: column;
+    gap: 0;
+    padding: 8px var(--gutter) 16px;
+  }
+
+  .navbar__link {
+    display: block;
+    padding: 14px 4px;
+    font-size: 1rem;
+  }
+
+  .navbar__link::after {
+    right: auto;
+    width: 40px;
+  }
+}
+
+/* ================= ≤ 768px ================= */
+@media (max-width: 768px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__ctas {
+    justify-content: center;
+  }
+
+  .hero__visual {
+    width: min(560px, 100%);
+    margin-inline: auto;
+    min-height: 0;
+    aspect-ratio: 1.15;
+  }
+
+  .features__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+
+  .features__sep {
+    display: none;
+  }
+
+  .banner__inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding-top: 32px;
+  }
+
+  .banner__copy {
+    order: -1;
+    padding-block: 0;
+  }
+
+  .banner__photo {
+    width: min(420px, 100%);
+  }
+
+  .banner__mascot {
+    display: none;
+  }
+
+  /* Constructor como asistente por pasos */
+  .stepper {
+    gap: 4px;
+  }
+
+  .stepper__circle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .stepper__circle svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .stepper__label {
+    font-size: 0.68rem;
+  }
+
+  .builder__progress {
+    display: block;
+  }
+
+  .builder__panels {
+    display: block;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  .builder-panel:not(.is-active) {
+    display: none;
+  }
+
+  .builder-panel {
+    padding: 18px 16px;
+  }
+
+  .option {
+    grid-template-columns: 22px 44px minmax(0, 1fr) auto;
+    gap: 12px;
+    min-height: 58px;
+  }
+
+  .thumb {
+    width: 44px;
+    height: 44px;
+  }
+
+  .option__name {
+    font-size: 1rem;
+  }
+
+  .option__price {
+    font-size: 0.9rem;
+  }
+
+  .builder__nav {
+    display: flex;
+  }
+
+  .summary {
+    flex-direction: column;
+  }
+
+  .summary__tagline {
+    display: none;
+  }
+
+  .summary__total {
+    width: 100%;
+    align-items: center;
+  }
+
+  .summary__add {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .modal {
+    grid-template-columns: 1fr;
+  }
+
+  .modal__img {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* ================= ≤ 600px ================= */
+@media (max-width: 600px) {
+  .location__grid,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__bottom-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ================= ≤ 480px ================= */
+@media (max-width: 480px) {
+  .navbar__order-text {
+    display: none;
+  }
+
+  .navbar__order {
+    width: 46px;
+    height: 46px;
+    padding: 0;
+  }
+
+  .logo__badge {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo__long {
+    font-size: 1.45rem;
+  }
+
+  .logo__wraps {
+    font-size: 1.5rem;
+  }
+
+  .menu__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wrap-card {
+    max-width: 400px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero__ctas .btn {
+    width: 100%;
+  }
+
+  .stepper__label {
+    display: none;
+  }
+
+  .modal__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal__actions .qty {
+    align-self: center;
+  }
+
+  .leaf {
+    width: 90px;
+  }
+}
+
+/* ================= ≤ 375px ================= */
+@media (max-width: 375px) {
+  .section-title h2 {
+    gap: 8px;
+  }
+
+  .section-title__burst {
+    width: 22px;
+  }
+
+  .stepper__circle {
+    width: 46px;
+    height: 46px;
+  }
+
+  .option {
+    grid-template-columns: 22px 36px minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+
+  .thumb {
+    width: 36px;
+    height: 36px;
+  }
+
+  .option__name {
+    font-size: 0.92rem;
+  }
+
+  .btn--lg {
+    padding-inline: 22px;
+  }
+
+  .toast__count {
+    display: none;
+  }
+}
+
+/* ================= ≤ 320px ================= */
+@media (max-width: 340px) {
+  .logo__text {
+    display: none;
+  }
+
+  .stepper__circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stepper__circle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .builder__nav .btn {
+    padding-inline: 14px;
+  }
+}
+
+/* ================= Movimiento reducido ================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}
