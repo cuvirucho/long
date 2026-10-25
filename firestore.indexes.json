@@ -1,0 +1,21 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "creaciones",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "searchTokens", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "votes", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "creaciones",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "searchTokens", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

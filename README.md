@@ -26,11 +26,30 @@ Los precios se guardan en **centavos** (`750` = $7.50) para evitar errores de re
 
 ## Reglas del constructor
 
-- Tortilla, proteína y salsa: se elige **una** opción. Son obligatorias y se validan antes de agregar al pedido.
-- Ingredientes y extras: se pueden elegir **varios**.
+- Tortilla: se elige **una** opción.
+- Proteínas, ingredientes, salsas y extras: se pueden elegir **varias**. Proteínas y salsas son obligatorias (al menos una) y se validan antes de avanzar.
 - Un ingrediente es la porción normal y un extra es una porción **adicional** que se cobra aparte. Por ejemplo, Aguacate + Aguacate extra = doble porción. Cada opción tiene un id único, así que nada se cobra dos veces.
 - Total = `BASE_PRICE_CENTS` + la suma de las opciones elegidas. El precio base es un dato de demostración y se cambia en `ingredients.js`. El cálculo está en la función pura `calculateWrapPrice` (`src/utils/wrapPricing.js`).
 - Al agregar un wrap al carrito se guarda una copia de su configuración y su precio. Si después cambias el constructor, los wraps que ya están en el carrito no cambian.
+
+## Creaciones de la comunidad (Firebase)
+
+Al agregar un wrap desde "Crea tu wrap" se ofrece publicarlo en la colección `creaciones` de Firestore. La sección "Creaciones" lista los wraps publicados (10 por página, con paginación por cursor), permite buscar por nombre o creador, votar (un voto por dispositivo, con sesión anónima) y compartir en redes. El Top 3 muestra los 3 más votados.
+
+Configuración:
+
+1. Crea un proyecto en [Firebase](https://console.firebase.google.com) y agrega una app web.
+2. Activa **Firestore** y, en **Authentication → Sign-in method**, el proveedor **Anónimo**.
+3. Copia `.env.example` como `.env.local` y pega los datos de la app web.
+4. Publica las reglas y los índices: `npx firebase-tools deploy --only firestore` (usa `firebase.json`, `firestore.rules` y `firestore.indexes.json`).
+
+| Qué | Archivo |
+| --- | --- |
+| Conexión y sesión anónima | `src/config/firebase.js` |
+| Consultas, búsqueda, votos y enlace para compartir | `src/services/creations.js` |
+| Reglas de seguridad (voto único, contador de 1 en 1) | `firestore.rules` |
+
+Mientras Firebase no esté configurado, la página funciona igual que antes y la sección muestra un aviso para el administrador.
 
 ## Pendiente de configurar (no se inventó ningún dato)
 

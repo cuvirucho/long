@@ -5,6 +5,7 @@ import './styles/global.css'
 import './styles/sections.css'
 import './styles/builder.css'
 import './styles/cart.css'
+import './styles/creations.css'
 import './styles/responsive.css'
 import App from './App.jsx'
 

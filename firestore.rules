@@ -1,0 +1,58 @@
+rules_version = '2';
+
+// Reglas de la colección "creaciones" (wraps publicados por la comunidad).
+// - Cualquiera puede leer.
+// - Publicar requiere sesión (anónima) y empieza con 0 votos.
+// - El contador "votes" solo cambia de 1 en 1 y siempre junto con el documento
+//   votos/{uid} del propio usuario: un voto por dispositivo.
+// - Nadie puede editar ni borrar creaciones.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /creaciones/{creationId} {
+      function voteDoc() {
+        return /databases/$(database)/documents/creaciones/$(creationId)/votos/$(request.auth.uid);
+      }
+
+      function validNewCreation(data) {
+        return data.keys().hasOnly(['name', 'creator', 'selection', 'totalCents', 'votes', 'searchTokens', 'authorUid', 'createdAt'])
+          && data.name is string && data.name.size() > 0 && data.name.size() <= 40
+          && data.creator is string && data.creator.size() > 0 && data.creator.size() <= 30
+          && data.selection is map
+          && data.totalCents is int
+          && data.votes == 0
+          && data.searchTokens is list && data.searchTokens.size() <= 100
+          && data.authorUid == request.auth.uid
+          && data.createdAt == request.time;
+      }
+
+      allow read: if true;
+
+      allow create: if request.auth != null && validNewCreation(request.resource.data);
+
+      allow update: if request.auth != null
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['votes'])
+        && (
+          (request.resource.data.votes == resource.data.votes + 1
+            && !exists(voteDoc()) && existsAfter(voteDoc()))
+          ||
+          (request.resource.data.votes == resource.data.votes - 1
+            && exists(voteDoc()) && !existsAfter(voteDoc()))
+        );
+
+      match /votos/{uid} {
+        function creation() {
+          return /databases/$(database)/documents/creaciones/$(creationId);
+        }
+
+        allow read: if request.auth != null && request.auth.uid == uid;
+
+        allow create: if request.auth != null && request.auth.uid == uid
+          && request.resource.data.keys().hasOnly(['createdAt'])
+          && getAfter(creation()).data.votes == get(creation()).data.votes + 1;
+
+        allow delete: if request.auth != null && request.auth.uid == uid
+          && getAfter(creation()).data.votes == get(creation()).data.votes - 1;
+      }
+    }
+  }
+}

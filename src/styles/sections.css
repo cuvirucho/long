@@ -561,6 +561,157 @@
   margin-top: 8px;
 }
 
+/* ================= TOP WRAPS ================= */
+.top-wraps {
+  position: relative;
+  overflow: hidden;
+}
+
+.top-wraps .container {
+  position: relative;
+  z-index: 1;
+}
+
+.top-wraps__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.top-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 20px 20px 18px;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.top-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* El #1 va al centro y destacado */
+.top-card--1 {
+  order: 2;
+  border: 3px solid var(--orange);
+  padding-block: 28px 24px;
+  box-shadow: var(--shadow-lift);
+}
+
+.top-card--2 {
+  order: 1;
+}
+
+.top-card--3 {
+  order: 3;
+}
+
+.top-card__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-card__medal {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.top-card--1 .top-card__medal {
+  font-size: 2.6rem;
+}
+
+.top-card__rank {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--turquoise);
+}
+
+.top-card__likes {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--danger);
+  background: var(--cream);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.top-card__name {
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.top-card--1 .top-card__name {
+  font-size: 1.8rem;
+  color: var(--orange);
+}
+
+.top-card__creator {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.top-card__quote {
+  margin-top: 10px;
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--turquoise-dark);
+}
+
+.top-card__recipe {
+  margin: 14px 0 0;
+  display: grid;
+  gap: 6px;
+  flex: 1;
+}
+
+.top-card__row {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.top-card__row dt {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--muted);
+  padding-top: 2px;
+}
+
+.top-card__row dd {
+  margin: 0;
+  color: var(--text);
+}
+
+.top-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
 /* ================= BANNER ================= */
 .banner {
   position: relative;
@@ -676,7 +827,7 @@
 .location__photo {
   width: 100%;
   aspect-ratio: 10 / 7;
-  object-fit: cover;
+  object-fit: scale-down;
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   overflow: hidden;

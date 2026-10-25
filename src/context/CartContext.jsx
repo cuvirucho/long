@@ -40,19 +40,21 @@ export function CartProvider({ children }) {
   )
 
   const addCustomWrap = useCallback(
-    (snapshot) => {
+    (snapshot, name) => {
       dispatch({
         type: 'add',
         item: {
           lineId: createLineId(),
           type: 'custom',
-          name: `Wrap personalizado (${snapshot.proteina.map((option) => option.name).join(' + ')})`,
+          name: name
+            ? `Wrap ${name}`
+            : `Wrap personalizado (${snapshot.proteina.map((option) => option.name).join(' + ')})`,
           unitPriceCents: snapshot.totalCents,
           qty: 1,
           details: snapshot,
         },
       })
-      notify('¡Tu wrap personalizado se agregó al pedido!')
+      notify(name ? `${name} se agregó a tu pedido` : '¡Tu wrap personalizado se agregó al pedido!')
     },
     [notify],
   )
@@ -73,13 +75,14 @@ export function CartProvider({ children }) {
       closeBuilder: () => setIsBuilderOpen(false),
       addMenuItem,
       addCustomWrap,
+      notify,
       increment: (lineId) => dispatch({ type: 'increment', lineId }),
       decrement: (lineId) => dispatch({ type: 'decrement', lineId }),
       remove: (lineId) => dispatch({ type: 'remove', lineId }),
       clear: () => dispatch({ type: 'clear' }),
       dismissNotice: () => setNotice(null),
     }
-  }, [items, isOpen, isBuilderOpen, notice, addMenuItem, addCustomWrap])
+  }, [items, isOpen, isBuilderOpen, notice, addMenuItem, addCustomWrap, notify])
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }

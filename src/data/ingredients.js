@@ -10,7 +10,7 @@
 //   Cada id es único en todo el constructor, así nada se cobra dos veces.
 
 // Precio base de preparación del wrap (dato de demostración, editable).
-export const BASE_PRICE_CENTS = 200;
+export const BASE_PRICE_CENTS = 30;
 
 export const BUILDER_STEPS = [
   {
@@ -42,6 +42,7 @@ export const BUILDER_STEPS = [
       },
 
       { id: "cerdo", name: "Carne de cerdo", priceCents: 300, emoji: "🥩" },
+      { id: "cerdot", name: "Cerdo teriaki", priceCents: 300, emoji: "🍘" },
       {
         id: "res-molida",
         name: "Carne de res molida.",
@@ -49,7 +50,7 @@ export const BUILDER_STEPS = [
         emoji: "🍖",
       },
       { id: "Tocino", name: "Tocino", priceCents: 350, emoji: "🥓" },
-      { id: "Chorizo", name: "Chorizo", priceCents: 350, emoji: "🍠" },
+      { id: "Chorizo", name: "Chorizo", priceCents: 350, emoji: "🌭" },
       { id: "Mariscos", name: "Mariscos", priceCents: 350, emoji: "🍣" },
     ],
   },
@@ -63,11 +64,20 @@ export const BUILDER_STEPS = [
     options: [
       { id: "lechuga", name: "Lechuga", priceCents: 50, emoji: "🥬" },
       { id: "tomate-fresco", name: "Tomate", priceCents: 50, emoji: "🍅" },
-      { id: "cebolla", name: "Cebolla morada", priceCents: 50, emoji: "🧅" },
       { id: "pepino", name: "Pepino", priceCents: 50, emoji: "🥒" },
-      { id: "maiz", name: "Maíz", priceCents: 50, emoji: "🌽" },
+      { id: "cebolla", name: "Cebolla blanca", priceCents: 50, emoji: "🧅" },
+      {
+        id: "cebollac",
+        name: "Cebolla caramelizada",
+        priceCents: 50,
+        emoji: "🥘",
+      },
       { id: "aguacate", name: "Aguacate", priceCents: 100, emoji: "🥑" },
       { id: "cheddar", name: "Queso cheddar", priceCents: 100, emoji: "🧀" },
+      { id: "pimientos", name: "Pimientos", priceCents: 50, emoji: "🥭" },
+      { id: "chanpiñom", name: "Champiñones", priceCents: 50, emoji: "🍄" },
+      { id: "huevo", name: "Huevo", priceCents: 50, emoji: "🥚" },
+      { id: "palitosv", name: "Palitos de verde", priceCents: 50, emoji: "🥖" },
     ],
   },
   {
@@ -79,10 +89,15 @@ export const BUILDER_STEPS = [
     icon: "sauce",
     options: [
       { id: "casa", name: "Salsa de la casa", priceCents: 0, color: "#F2A65A" },
-      { id: "chipotle", name: "Chipotle", priceCents: 50, color: "#C8553D" },
-      { id: "mango", name: "Mango", priceCents: 50, color: "#FFB627" },
-      { id: "yogur", name: "Yogur", priceCents: 50, color: "#F4F1EA" },
-      { id: "bbq", name: "BBQ", priceCents: 50, color: "#6B2D1F" },
+      { id: "chipotle", name: "Chipotle", priceCents: 0, color: "#C8553D" },
+      {
+        id: "pepinillos",
+        name: "Salsa de pepinillos",
+        priceCents: 0,
+        color: "#0c4d03",
+      },
+      { id: "teriyaki", name: "Teriyaki", priceCents: 0, color: "#a37f2b" },
+      { id: "mayonesa", name: "Mayonesa", priceCents: 0, color: "#F4F1EA" },
     ],
   },
   {
@@ -103,7 +118,7 @@ export const BUILDER_STEPS = [
       },
       { id: "tocineta", name: "Tocineta", priceCents: 100, emoji: "🥓" },
       { id: "jalapenos", name: "Jalapeños", priceCents: 50, emoji: "🌶️" },
-      { id: "maiz-extra", name: "Maíz extra", priceCents: 50, emoji: "🌽" },
+      { id: "carne", name: "Carne extra", priceCents: 100, emoji: "🥩" },
     ],
   },
 ];
