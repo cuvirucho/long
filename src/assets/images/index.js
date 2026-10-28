@@ -13,7 +13,8 @@ export const IMAGES = {
     "https://res.cloudinary.com/db8e98ggo/image/upload/v1792868009/Usa_la_imagen_adjunta_como_referencia_maestra_del_personaje_y_desarrolla_una_identidad_gr%C3%A1fica_comercial_completa_para_una_marca_de_comida._El_objetivo_es_crear_una_marca_gastron%C3%B3mica_atractiva_m_6_mb50ys.png", // Wrap abierto con pollo y vegetales (hero)
   mascota:
     "https://res.cloudinary.com/db8e98ggo/image/upload/v1792866187/Usa_la_imagen_adjunta_como_referencia_maestra_del_personaje_y_desarrolla_una_identidad_gr%C3%A1fica_comercial_completa_para_una_marca_de_comida._El_objetivo_es_crear_una_marca_gastron%C3%B3mica_atractiva_m_5_z3y2vl.png", // Mascota de la marca
-  bannerWrap: null, // Wrap grande para el banner "Crea tu wrap"
+  bannerWrap:
+    "https://res.cloudinary.com/db8e98ggo/image/upload/v1793133700/Usa_la_imagen_adjunta_como_referencia_maestra_del_personaje_y_desarrolla_una_identidad_gr%C3%A1fica_comercial_completa_para_una_marca_de_comida._El_objetivo_es_crear_una_marca_gastron%C3%B3mica_atractiva_m_9_l4omfk.png", // Wrap grande  animado para el banner "Crea tu wrap"
   wrapSteak: null,
   GRANGERA: null,
   mascota2:

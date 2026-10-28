@@ -47,11 +47,10 @@ export default function CreateWrapBanner() {
           </Button>
         </div>
 
-        <SmartImage
-          imageKey="bannerWrap"
+        <img
+          src={IMAGES.bannerWrap}
           alt="Wrap grande con ingredientes coloridos"
           className="banner__photo"
-          fallback={<WrapIllustration variant="shrimp" />}
         />
       </div>
     </section>

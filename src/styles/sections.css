@@ -792,7 +792,7 @@
   width: 115%;
   max-width: none;
   aspect-ratio: 48 / 34;
-  object-fit: cover;
+  object-fit: scale-down;
   border-radius: var(--radius-section);
   filter: drop-shadow(0 18px 24px rgba(0, 31, 91, 0.3));
 }

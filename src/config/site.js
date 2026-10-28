@@ -28,8 +28,9 @@ export const SITE = {
   mapsDirectionsUrl: "",
 
   social: {
-    instagram: "", // ej. "https://instagram.com/longwraps"
-    facebook: "",
+    instagram: "https://www.instagram.com/longwrap/ ", // ej. "https://instagram.com/longwraps"
+    facebook:
+      "https://www.facebook.com/profile.php?id=61595715572208https://www.facebook.com/profile.php?id=61595715572208",
     tiktok: "",
     handle: "@longwraps",
   },
